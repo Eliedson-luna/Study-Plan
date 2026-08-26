@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <form onsubmit="onSubmit(event)">
+            <h1>Form usando onSubmit</h1>
+            <label for="username-input">Nome de Usuário</label>
+            <input id="username-input" type="text" name="username" />
+            <br>
+            <label for="email-input">Email</label>
+            <input id="email-input" type="email" name="email" />
+            <br>
+            <label for="password-input">Senha</label>
+            <input id="password-input" type="password" name="senha" />
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+    <section>
+         <form action="/users" method="post">
+            <h1>Form usando action e meodo POST</h1>
+            <label for="username-input">Nome de Usuário</label>
+            <input id="username-input" type="text" name="username" />
+            <br>
+            <label for="email-input">Email</label>
+            <input id="email-input" type="email" name="email" />
+            <br>
+            <label for="password-input">Senha</label>
+            <input id="password-input" type="password" name="senha" />
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+     <section>
+         <form action="/users" method="get">
+            <h1>Form usando action e meodo GET</h1>
+            <label for="username-input">Nome de Usuário</label>
+            <input id="username-input" type="text" name="username" />
+            <br>
+            <label for="email-input">Email</label>
+            <input id="email-input" type="email" name="email" />
+            <br>
+            <label for="password-input">Senha</label>
+            <input id="password-input" type="password" name="senha" />
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+
+</body>
+<script>
+    function onSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+
+        const username = form.username.value;
+        const email = form.email.value;
+        const senha = form.senha.value;
+
+
+        console.log(event)
+
+        console.log(username, " / " ,email, " / ", senha)
+    }
+</script>
+
+</html>
