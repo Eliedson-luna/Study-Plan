@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - HTML semantico</title>
+    <style>
+        header,
+        nav {
+            display: block;
+            background-color: #FF000080;
+        }
+
+        main,
+        section,
+        article {
+            display: block;
+            background-color: #00FF0050;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        essa tag cria um bloco no topo da página, se trata do cabeçalho da página
+        <nav>
+            a tag nav cria um bloco cujo foco principal é a navegação pela página
+        </nav>
+    </header>
+    <main>
+        tag main: é o bloco principal da página, dentro dela ficam o conteudo e os componentes principais que constituem
+        o site
+        <section>
+            cria uma seção dentro da página
+            <article>
+                um artigo
+            </article>
+        </section>
+
+        <p>My family and I visited The Epcot center this summer. The weather was nice, and Epcot was amazing! I had a
+            great summer together with my family!</p>
+
+        <aside>
+            <h4>Epcot Center</h4>
+            <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international
+                pavilions, award-winning fireworks and seasonal special events.</p>
+        </aside>
+
+        <p>Do not forget to buy <mark>milk</mark> today.</p>
+
+        <details>
+            <p>esse texto nao é exbido com o details fechado</p>
+            <summary>Epcot Center</summary>
+            <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international
+                pavilions, award-winning fireworks and seasonal special events.</p>
+        </details>
+
+
+    </main>
+    <footer>
+        <p>Open from 10:00 to <time>21:00</time> every weekday.</p>
+
+        <p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p>
+    </footer>
+</body>
+
+</html>
