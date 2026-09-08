@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração CSS Display</title>
+    <style>
+        section {
+            margin: 10px;
+            padding: 10px;
+            background-color: darkgray;
+            border-radius: 5px;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: rgb(54, 54, 54);
+            padding: 5px;
+        }
+
+        h1,
+        h2 {
+            text-transform: uppercase;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 200px 200px;
+            grid-template-rows: 100px 200px;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="block-content">
+            <h1>block</h1>
+            <div class="">
+                <div class="container">
+                    <p class="block" style="color: rgb(221, 180, 180);">
+                        Paragrafo - 1
+                        Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                    <p class="block" style="color: rgb(162, 192, 162);">
+                        Paragrafo - 2
+                        Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                        beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                    <p class="block" style="color: rgb(97, 97, 128);">
+                        Paragrafo - 3
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                        beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                </div>
+        </section>
+        <section id="inline-content">
+            <h1>inline</h1>
+            <div class="container">
+                <p class="inline" style="color: rgb(221, 180, 180);">
+                    Paragrafo - 1
+                    Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+                <p class="inline" style="color: rgb(162, 192, 162);">
+                    Paragrafo - 2
+                    Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                    beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+                <p class="inline" style="color: rgb(97, 97, 128);">
+                    Paragrafo - 3
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                    beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+            </div>
+        </section>
+        <section id="inline-block-content">
+            <h1>inline-block</h1>
+            <div class="container">
+                <p class="inline-block" style="color: rgb(221, 180, 180);">
+                    Paragrafo - 1
+                    Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+                <p class="inline-block" style="color: rgb(162, 192, 162);">
+                    Paragrafo - 2
+                    Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+                <p class="inline-block" style="color: rgb(97, 97, 128);">
+                    Paragrafo - 3
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                    beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+            </div>
+        </section>
+        <section id="flex-content">
+            <h1>Flex</h1>
+            <article>
+                <h2>Flex column</h2>
+                <div class="container flex-column">
+                    <p class="inline-block" style="color: rgb(221, 180, 180);">
+                        Paragrafo - 1
+                        Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                    <p class="inline-block" style="color: rgb(162, 192, 162);">
+                        Paragrafo - 2
+                        Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                    <p class="inline-block" style="color: rgb(97, 97, 128);">
+                        Paragrafo - 3
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                        beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                </div>
+                <h2>Flex row</h2>
+                <div class="container flex-row">
+                    <p class="inline-block" style="color: rgb(221, 180, 180);">
+                        Paragrafo - 1
+                        Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                    <p class="inline-block" style="color: green;">
+                        Paragrafo - 2
+                        Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                    <p class="inline-block" style="color: blue;">
+                        Paragrafo - 3
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                        beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                    </p>
+                </div>
+            </article>
+        </section>
+        <section id="grid-content">
+            <div style="display: flex; justify-content: space-between;">
+                <h1>None</h1> 
+                <button id="toggle-display-btn" style="height: 30px; border-radius: 5px; cursor: pointer;" onclick="changeDisplay()">Ocultar</button>
+            </div>
+            <div id="display-target" class="container">
+                <p class="inline-block" style="color: rgb(221, 180, 180);">
+                    Paragrafo - 1
+                    Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+                <p class="inline-block" style="color: rgb(162, 192, 162);">
+                    Paragrafo - 2
+                    Sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+                <p class="inline-block" style="color: rgb(97, 97, 128);">
+                    Paragrafo - 3
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reiciendis itaque odio est voluptate sapiente nisi fugit soluta? Debitis quam omnis
+                    beatae, sit aspernatur maxime explicabo cum quos expedita. Reiciendis, blanditiis!
+                </p>
+            </div>
+        </section>
+    </main>
+    <script>
+        function changeDisplay() {
+            var targetDiv = document.getElementById("display-target");
+            var toggleBtn = document.getElementById("toggle-display-btn");
+            
+            if (targetDiv.style.display === "none") {
+                targetDiv.style.display = "";
+                toggleBtn.textContent = "Ocultar"
+            } else {
+                targetDiv.style.display = "none";
+                toggleBtn.textContent = "Mostrar"
+            }
+        }
+    </script>
+</body>
+
+</html>
