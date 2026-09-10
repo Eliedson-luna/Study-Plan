@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Demonstração CSS Flexbox</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #202020;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: darkgray;
+            border-radius: 5px;
+        }
+
+        article {
+            margin-top: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #222;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: rgb(54, 54, 54);
+            padding: 10px;
+            min-height: 150px;
+        }
+
+        /*
+            Cada item possui uma cor e um tamanho diferente
+            para tornar o comportamento do Flexbox mais fácil
+            de visualizar.
+        */
+        .item {
+            padding: 15px;
+            margin: 5px;
+            border-radius: 5px;
+
+            background-color: #777;
+
+            text-align: center;
+            font-weight: bold;
+
+            min-width: 100px;
+        }
+
+        .item-1 {
+            background-color: rgb(110, 70, 70);
+        }
+
+        .item-2 {
+            background-color: rgb(70, 110, 70);
+        }
+
+        .item-3 {
+            background-color: rgb(70, 70, 110);
+        }
+
+        .item-4 {
+            background-color: rgb(110, 100, 60);
+        }
+
+        .item-5 {
+            background-color: rgb(90, 60, 110);
+        }
+
+        /*
+            ==================================================
+            DISPLAY
+            ==================================================
+        */
+
+        .flex {
+            display: flex;
+        }
+
+        /*
+            ==================================================
+            FLEX-DIRECTION
+            ==================================================
+        */
+
+        .direction-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .direction-row-reverse {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .direction-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .direction-column-reverse {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        /*
+            ==================================================
+            FLEX-WRAP
+            ==================================================
+        */
+
+        .wrap-nowrap {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .wrap-wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .wrap-reverse {
+            display: flex;
+            flex-wrap: wrap-reverse;
+        }
+
+        /*
+            ==================================================
+            FLEX-FLOW
+            ==================================================
+        */
+
+        .flow {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        /*
+            ==================================================
+            JUSTIFY-CONTENT
+            ==================================================
+        */
+
+        .justify-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .justify-start {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .justify-end {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .justify-around {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .justify-between {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .justify-evenly {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        /*
+            ==================================================
+            ALIGN-ITEMS
+            ==================================================
+        */
+
+        .align-normal {
+            display: flex;
+            align-items: normal;
+        }
+
+        .align-stretch {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .align-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .align-start {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .align-end {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .align-baseline {
+            display: flex;
+            align-items: baseline;
+        }
+
+        /*
+            ==================================================
+            ALIGN-CONTENT
+            ==================================================
+
+            É necessário utilizar wrap para que existam
+            múltiplas linhas.
+        */
+
+        .content-center {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+        .content-start {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+
+        .content-end {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-end;
+        }
+
+        .content-around {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+        }
+
+        .content-between {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+
+        .content-evenly {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-evenly;
+        }
+
+        /*
+            ==================================================
+            CONTROLES
+            ==================================================
+        */
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+
+            border: none;
+            border-radius: 5px;
+
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            filter: brightness(1.15);
+        }
+
+        select {
+            padding: 8px;
+
+            border: none;
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+        /*
+            ==================================================
+            DEMONSTRAÇÃO INTERATIVA
+            ==================================================
+        */
+
+        #interactive-target {
+            display: flex;
+
+            min-height: 250px;
+
+            border: 2px dashed #aaa;
+        }
+
+        .code {
+            margin-top: 10px;
+            padding: 10px;
+
+            background-color: #151515;
+            color: #ddd;
+
+            border-radius: 5px;
+
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <!-- ==================================================
+             INTRODUÇÃO
+             ================================================== -->
+
+        <section>
+
+            <h1>Flexbox</h1>
+
+            <p>
+                Flexbox é o conjunto de recursos relacionados ao
+                comportamento <strong>flex</strong> do CSS.
+            </p>
+
+            <p>
+                Um componente Flexbox possui dois elementos principais:
+                o <strong>Flex Container</strong> e o
+                <strong>Flex Item</strong>.
+            </p>
+
+            <p>
+                O elemento que recebe
+                <code>display: flex;</code> é o
+                <strong>Flex Container</strong>.
+                Os elementos diretamente dentro dele se tornam
+                <strong>Flex Items</strong>.
+            </p>
+
+        </section>
+
+
+        <!-- ==================================================
+             DISPLAY
+             ================================================== -->
+
+        <section>
+
+            <h1>Display</h1>
+
+            <div class="container flex">
+
+                <div class="item item-1">
+                    Item 1
+                </div>
+
+                <div class="item item-2">
+                    Item 2
+                </div>
+
+                <div class="item item-3">
+                    Item 3
+                </div>
+
+            </div>
+
+            <div class="code">
+                display: flex;
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             FLEX-DIRECTION
+             ================================================== -->
+
+        <section>
+
+            <h1>Flex Direction</h1>
+
+            <p>
+                Define a direção em que os Flex Items serão organizados.
+            </p>
+
+
+            <article>
+
+                <h2>Row</h2>
+
+                <div class="container direction-row">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    flex-direction: row;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Row Reverse</h2>
+
+                <div class="container direction-row-reverse">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    flex-direction: row-reverse;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Column</h2>
+
+                <div class="container direction-column">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    flex-direction: column;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Column Reverse</h2>
+
+                <div class="container direction-column-reverse">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    flex-direction: column-reverse;
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================================
+             FLEX-WRAP
+             ================================================== -->
+
+        <section>
+
+            <h1>Flex Wrap</h1>
+
+            <p>
+                Define se os itens podem quebrar para uma nova linha
+                quando não houver espaço suficiente.
+            </p>
+
+
+            <article>
+
+                <h2>Nowrap</h2>
+
+                <div class="container wrap-nowrap">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: nowrap;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Wrap</h2>
+
+                <div class="container wrap-wrap">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Wrap Reverse</h2>
+
+                <div class="container wrap-reverse">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap-reverse;
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================================
+             FLEX-FLOW
+             ================================================== -->
+
+        <section>
+
+            <h1>Flex Flow</h1>
+
+            <p>
+                Combina <code>flex-direction</code> e
+                <code>flex-wrap</code> em uma única propriedade.
+            </p>
+
+            <div class="container flow">
+
+                <div class="item item-1">1</div>
+                <div class="item item-2">2</div>
+                <div class="item item-3">3</div>
+                <div class="item item-4">4</div>
+                <div class="item item-5">5</div>
+
+            </div>
+
+            <div class="code">
+                flex-flow: row wrap;
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             JUSTIFY-CONTENT
+             ================================================== -->
+
+        <section>
+
+            <h1>Justify Content</h1>
+
+            <p>
+                Controla a distribuição dos Flex Items no eixo principal.
+            </p>
+
+
+            <article>
+
+                <h2>Center</h2>
+
+                <div class="container justify-center">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    justify-content: center;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Flex Start</h2>
+
+                <div class="container justify-start">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    justify-content: flex-start;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Flex End</h2>
+
+                <div class="container justify-end">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    justify-content: flex-end;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Space Around</h2>
+
+                <div class="container justify-around">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    justify-content: space-around;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Space Between</h2>
+
+                <div class="container justify-between">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    justify-content: space-between;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Space Evenly</h2>
+
+                <div class="container justify-evenly">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    justify-content: space-evenly;
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================================
+             ALIGN-ITEMS
+             ================================================== -->
+
+        <section>
+
+            <h1>Align Items</h1>
+
+            <p>
+                Controla o alinhamento dos itens no eixo transversal.
+            </p>
+
+
+            <article>
+
+                <h2>Normal</h2>
+
+                <div class="container align-normal">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    align-items: normal;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Stretch</h2>
+
+                <div class="container align-stretch">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    align-items: stretch;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Center</h2>
+
+                <div class="container align-center">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    align-items: center;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Flex Start</h2>
+
+                <div class="container align-start">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    align-items: flex-start;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Flex End</h2>
+
+                <div class="container align-end">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+
+                </div>
+
+                <div class="code">
+                    align-items: flex-end;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Baseline</h2>
+
+                <div class="container align-baseline">
+
+                    <div class="item item-1" style="font-size: 12px;">
+                        Texto pequeno
+                    </div>
+
+                    <div class="item item-2" style="font-size: 25px;">
+                        Texto médio
+                    </div>
+
+                    <div class="item item-3" style="font-size: 40px;">
+                        Texto grande
+                    </div>
+
+                </div>
+
+                <div class="code">
+                    align-items: baseline;
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================================
+             ALIGN-CONTENT
+             ================================================== -->
+
+        <section>
+
+            <h1>Align Content</h1>
+
+            <p>
+                Controla o alinhamento das linhas quando os itens
+                estão quebrados utilizando <code>flex-wrap: wrap;</code>.
+            </p>
+
+
+            <article>
+
+                <h2>Center</h2>
+
+                <div class="container content-center">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                    <br>
+                    align-content: center;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Flex Start</h2>
+
+                <div class="container content-start">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                    <br>
+                    align-content: flex-start;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Flex End</h2>
+
+                <div class="container content-end">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                    <br>
+                    align-content: flex-end;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Space Around</h2>
+
+                <div class="container content-around">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                    <br>
+                    align-content: space-around;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Space Between</h2>
+
+                <div class="container content-between">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                    <br>
+                    align-content: space-between;
+                </div>
+
+            </article>
+
+
+            <article>
+
+                <h2>Space Evenly</h2>
+
+                <div class="container content-evenly">
+
+                    <div class="item item-1">1</div>
+                    <div class="item item-2">2</div>
+                    <div class="item item-3">3</div>
+                    <div class="item item-4">4</div>
+                    <div class="item item-5">5</div>
+
+                </div>
+
+                <div class="code">
+                    flex-wrap: wrap;
+                    <br>
+                    align-content: space-evenly;
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================================
+             DEMONSTRAÇÃO INTERATIVA
+             ================================================== -->
+
+        <section>
+
+            <h1>Laboratório Flexbox</h1>
+
+            <p>
+                Aqui você pode alterar as principais propriedades
+                do Flex Container e observar o resultado.
+            </p>
+
+
+            <div class="controls">
+
+                <label for="direction">
+                    Direction:
+                </label>
+
+                <select id="direction">
+
+                    <option value="row">
+                        row
+                    </option>
+
+                    <option value="row-reverse">
+                        row-reverse
+                    </option>
+
+                    <option value="column">
+                        column
+                    </option>
+
+                    <option value="column-reverse">
+                        column-reverse
+                    </option>
+
+                </select>
+
+
+                <label for="wrap">
+                    Wrap:
+                </label>
+
+                <select id="wrap">
+
+                    <option value="nowrap">
+                        nowrap
+                    </option>
+
+                    <option value="wrap">
+                        wrap
+                    </option>
+
+                    <option value="wrap-reverse">
+                        wrap-reverse
+                    </option>
+
+                </select>
+
+
+                <label for="justify">
+                    Justify:
+                </label>
+
+                <select id="justify">
+
+                    <option value="flex-start">
+                        flex-start
+                    </option>
+
+                    <option value="center">
+                        center
+                    </option>
+
+                    <option value="flex-end">
+                        flex-end
+                    </option>
+
+                    <option value="space-around">
+                        space-around
+                    </option>
+
+                    <option value="space-between">
+                        space-between
+                    </option>
+
+                    <option value="space-evenly">
+                        space-evenly
+                    </option>
+
+                </select>
+
+
+                <label for="align">
+                    Align:
+                </label>
+
+                <select id="align">
+
+                    <option value="normal">
+                        normal
+                    </option>
+
+                    <option value="stretch">
+                        stretch
+                    </option>
+
+                    <option value="center">
+                        center
+                    </option>
+
+                    <option value="flex-start">
+                        flex-start
+                    </option>
+
+                    <option value="flex-end">
+                        flex-end
+                    </option>
+
+                    <option value="baseline">
+                        baseline
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div id="interactive-target" class="container">
+
+                <div class="item item-1">
+                    Item 1
+                </div>
+
+                <div class="item item-2">
+                    Item 2
+                </div>
+
+                <div class="item item-3">
+                    Item 3
+                </div>
+
+                <div class="item item-4">
+                    Item 4
+                </div>
+
+                <div class="item item-5">
+                    Item 5
+                </div>
+
+            </div>
+
+
+            <div id="interactive-code" class="code">
+                display: flex;<br>
+                flex-direction: row;<br>
+                flex-wrap: nowrap;<br>
+                justify-content: flex-start;<br>
+                align-items: normal;
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================================
+         JAVASCRIPT
+         ====================================================== -->
+
+    <script>
+
+        const target = document.getElementById("interactive-target");
+
+        const direction = document.getElementById("direction");
+        const wrap = document.getElementById("wrap");
+        const justify = document.getElementById("justify");
+        const align = document.getElementById("align");
+
+        const code = document.getElementById("interactive-code");
+
+
+        function updateFlexbox() {
+
+            /*
+                As propriedades são aplicadas diretamente no
+                Flex Container para que possamos observar
+                imediatamente a mudança no comportamento.
+            */
+
+            target.style.flexDirection = direction.value;
+
+            target.style.flexWrap = wrap.value;
+
+            target.style.justifyContent = justify.value;
+
+            target.style.alignItems = align.value;
+
+
+            /*
+                O mesmo estado aplicado ao elemento é mostrado
+                abaixo como CSS, facilitando a associação entre
+                propriedade e comportamento visual.
+            */
+
+            code.innerHTML = `
+                display: flex;<br>
+                flex-direction: ${direction.value};<br>
+                flex-wrap: ${wrap.value};<br>
+                justify-content: ${justify.value};<br>
+                align-items: ${align.value};
+            `;
+        }
+
+
+        direction.addEventListener("change", updateFlexbox);
+
+        wrap.addEventListener("change", updateFlexbox);
+
+        justify.addEventListener("change", updateFlexbox);
+
+        align.addEventListener("change", updateFlexbox);
+
+
+        updateFlexbox();
+
+    </script>
+
+</body>
+
+</html>
