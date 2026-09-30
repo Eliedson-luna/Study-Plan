@@ -8,7 +8,7 @@ Vou deixar registrado aqui o que eu etudar sobre o assunto da prova assim como f
 # Cronograma
 
 
-![CRONOGRAMA](./content/cronograma.jpg)
+![CRONOGRAMA](./assets/cronograma.jpg)
 
 A imagem é uma representação do conteúdo a ser estudado.
 
