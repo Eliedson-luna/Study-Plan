@@ -1,6 +1,6 @@
 # Sobre
 
-Estou acompanhando a Preparaçao feita pelo Pedro Tenório no youtube
+Estou acompanhando a Preparaçao feita pelo Pedro Tenório no youtube, aqui vou deixar algumas anotações sobre o que eu achar importante durante as videoaulas. 
 
 # Links
 
